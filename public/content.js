@@ -1,4 +1,3 @@
-debugger
 chrome.runtime.onMessage.addListener(function (request, sender, callback) {
   console.log('listener activated');
   main();
@@ -14,12 +13,14 @@ function main() {
     fetch(chrome.runtime.getURL('index.html') /*, options */)
       .then((response) => response.text())
       .then((html) => {
+        const template = document.createElement('template');
         const styleStashHTML = html.replace(/\/static\//g, `${extensionOrigin}/static/`);
-        // eslint-disable-next-line no-undef
-        // $(styleStashHTML).appendTo('body');
-        document.getElementsByTagName('body').appendChild(styleStashHTML);
         debugger;
-        console.log("styleStashHTML", styleStashHTML);
+        template.innerHTML = styleStashHTML;
+        // eslint-disable-next-line no-undef
+        // styleStashHTML.trim();
+        const body = document.getElementsByTagName("body")[0];
+        if (body) { body.appendChild(template.content.childNodes); console.log("yay")}
       })
       .catch((error) => {
         debugger;
