@@ -28,11 +28,13 @@ function main() {
 }
 
 window.addEventListener("message", function (event) {
+  debugger
   if (event.source !== window) return;
   onDidReceiveMessage(event);
 });
 
 async function onDidReceiveMessage(event) {
+  debugger
   if (event.data.type && (event.data.type === "GET_EXTENSION_ID")) {
     window.postMessage({ type: "EXTENSION_ID_RESULT", extensionId: chrome.runtime.id }, "*");
   }
