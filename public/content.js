@@ -1,11 +1,10 @@
+debugger
 chrome.runtime.onMessage.addListener(function (request, sender, callback) {
-  debugger;
-  console.log('yay');
+  console.log('listener activated');
   main();
 });
 
 function main() {
-  debugger
   // eslint-disable-next-line no-undef
   const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
   // eslint-disable-next-line no-restricted-globals
@@ -18,23 +17,23 @@ function main() {
         const styleStashHTML = html.replace(/\/static\//g, `${extensionOrigin}/static/`);
         // eslint-disable-next-line no-undef
         // $(styleStashHTML).appendTo('body');
+        document.getElementsByTagName('body').appendChild(styleStashHTML);
         debugger;
-        console.log(styleStashHTML);
+        console.log("styleStashHTML", styleStashHTML);
       })
       .catch((error) => {
+        debugger;
         console.warn(error);
       });
   }
 }
 
 window.addEventListener("message", function (event) {
-  debugger
   if (event.source !== window) return;
   onDidReceiveMessage(event);
 });
 
 async function onDidReceiveMessage(event) {
-  debugger
   if (event.data.type && (event.data.type === "GET_EXTENSION_ID")) {
     window.postMessage({ type: "EXTENSION_ID_RESULT", extensionId: chrome.runtime.id }, "*");
   }
