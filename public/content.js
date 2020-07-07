@@ -20,7 +20,7 @@ function main() {
         // eslint-disable-next-line no-undef
         // styleStashHTML.trim();
         const body = document.getElementsByTagName("body")[0];
-        if (body) { body.appendChild(template.content.childNodes); console.log("yay")}
+        if (body) { body.append(...template.content.childNodes); console.log("yay")}
       })
       .catch((error) => {
         debugger;
