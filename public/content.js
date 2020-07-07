@@ -15,10 +15,9 @@ function main() {
       .then((html) => {
         const template = document.createElement('template');
         const styleStashHTML = html.replace(/\/static\//g, `${extensionOrigin}/static/`);
-        debugger;
+
         template.innerHTML = styleStashHTML;
         // eslint-disable-next-line no-undef
-        // styleStashHTML.trim();
         const body = document.getElementsByTagName("body")[0];
         if (body) { body.append(...template.content.childNodes); console.log("yay")}
       })

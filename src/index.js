@@ -4,12 +4,35 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("cine-ui")
-);
+document.addEventListener('DOMContentLoaded', () => {
+  
+  let root;
+   root = document.getElementById("cine-ui");
+  if (root) {
+    return ReactDOM.render(
+        <App />,
+      root
+    );
+  }
+  document.addEventListener("change",(e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    debugger
+    root = document.getElementById("cine-ui");
+    if(root){
+      debugger
+      ReactDOM.render(
+          <App />,
+        root
+      );
+    }
+  })
+  // return ReactDOM.render(
+  //   <App />,
+  //   root
+  // );
+})
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
