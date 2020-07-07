@@ -1,4 +1,6 @@
 chrome.runtime.onMessage.addListener(function (request, sender, callback) {
+  debugger;
+  console.log('yay');
   main();
 });
 
