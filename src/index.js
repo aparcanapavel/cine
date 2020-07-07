@@ -4,17 +4,19 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+debugger;
 document.addEventListener('DOMContentLoaded', () => {
   
   let root;
    root = document.getElementById("cine-ui");
   if (root) {
+    debugger
     return ReactDOM.render(
         <App />,
       root
     );
   }
-  document.addEventListener("change",(e) => {
+  window.addEventListener("change",(e) => {
     e.stopPropagation();
     e.preventDefault();
     debugger
