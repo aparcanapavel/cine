@@ -14,15 +14,18 @@ function main() {
       .then((response) => response.text())
       .then((html) => {
         // const template = document.createElement('template');
-        const template = document.createElement('div');
         const styleStashHTML = html.replace(/\/static\//g, `${extensionOrigin}/static/`);
+        const template = document.createElement('div');
 
         template.innerHTML = styleStashHTML;
         const executableHTML = nodeScriptReplace(template);
         // eslint-disable-next-line no-undef
         const body = document.getElementsByTagName("body")[0];
         // if (body) { body.append(...template.content.childNodes); console.log("yay")}
-        if (body) { body.append(executableHTML); console.log("yay")}
+        debugger
+        // document.body.appendChild(executableHTML); 
+        body.append(executableHTML)l
+        console.log("yay")
         // LAST ERROR check
       })
       .catch((error) => {
