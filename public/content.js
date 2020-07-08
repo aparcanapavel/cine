@@ -20,6 +20,7 @@ function main() {
         // eslint-disable-next-line no-undef
         const body = document.getElementsByTagName("body")[0];
         if (body) { body.append(...template.content.childNodes); console.log("yay")}
+        // LAST ERROR check
       })
       .catch((error) => {
         debugger;
