@@ -24,7 +24,7 @@ function main() {
         // if (body) { body.append(...template.content.childNodes); console.log("yay")}
         debugger
         // document.body.appendChild(executableHTML); 
-        body.append(executableHTML)l
+        body.append(executableHTML)
         console.log("yay")
         // LAST ERROR check
       })
