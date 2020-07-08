@@ -4,35 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-debugger;
-document.addEventListener('DOMContentLoaded', () => {
-  
-  let root;
-   root = document.getElementById("cine-ui");
-  if (root) {
-    debugger
-    return ReactDOM.render(
-        <App />,
-      root
-    );
-  }
-  window.addEventListener("change",(e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    debugger
-    root = document.getElementById("cine-ui");
-    if(root){
-      debugger
-      ReactDOM.render(
-          <App />,
-        root
-      );
-    }
-  })
-  // return ReactDOM.render(
-  //   <App />,
-  //   root
-  // );
+document.addEventListener('DOMContentLoaded', () => { 
+  const root = document.getElementById("cine-ui");
+  return ReactDOM.render(
+      <App />,
+    root
+  );
 })
 
 
