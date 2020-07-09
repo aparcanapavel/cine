@@ -26,7 +26,8 @@
     }
   ],
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "tabs"
   ],
   // "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_security_policy": "script-src 'self' 'sha256-Sv9N0ceWbcgpaMxDynCqFHcMqmqw0xgksYYnsc5WTGk'; object-src 'self'",
