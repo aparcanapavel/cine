@@ -5,34 +5,37 @@ chrome.runtime.onMessage.addListener(function (request, sender, callback) {
 
 function main() {
   // eslint-disable-next-line no-undef
-  const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
-  // eslint-disable-next-line no-restricted-globals
-  if (!location.ancestorOrigins.contains(extensionOrigin)) {
-    // Fetch the local React index.html page
-    // eslint-disable-next-line no-undef
-    fetch(chrome.runtime.getURL('index.html') /*, options */)
-      .then((response) => response.text())
-      .then((html) => {
-        // const template = document.createElement('template');
-        const styleStashHTML = html.replace(/\/static\//g, `${extensionOrigin}/static/`);
-        const template = document.createElement('div');
+  // const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
+  // // eslint-disable-next-line no-restricted-globals
+  // if (!location.ancestorOrigins.contains(extensionOrigin)) {
+  //   // Fetch the local React index.html page
+  //   // eslint-disable-next-line no-undef
+  //   fetch(chrome.runtime.getURL('index.html') /*, options */)
+  //     .then((response) => response.text())
+  //     .then((html) => {
+  //       // const template = document.createElement('template');
+  //       const styleStashHTML = html.replace(/\/static\//g, `${extensionOrigin}/static/`);
+  //       const template = document.createElement('div');
 
-        template.innerHTML = styleStashHTML;
-        const executableHTML = nodeScriptReplace(template);
-        // eslint-disable-next-line no-undef
-        const body = document.getElementsByTagName("body")[0];
-        // if (body) { body.append(...template.content.childNodes); console.log("yay")}
-        debugger
-        // document.body.appendChild(executableHTML); 
-        body.append(executableHTML)
-        console.log("yay")
-        // LAST ERROR check
-      })
-      .catch((error) => {
-        debugger;
-        console.warn(error);
-      });
-  }
+  //       template.innerHTML = styleStashHTML;
+  //       const executableHTML = nodeScriptReplace(template);
+  //       // eslint-disable-next-line no-undef
+  //       const body = document.getElementsByTagName("body")[0];
+  //       // if (body) { body.append(...template.content.childNodes); console.log("yay")}
+  //       debugger
+  //       // document.body.appendChild(executableHTML); 
+  //       body.append(executableHTML)
+  //       console.log("yay")
+  //       // LAST ERROR check
+  //     })
+  //     .catch((error) => {
+  //       debugger;
+  //       console.warn(error);
+  //     });
+  // }
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('div[role="button"][arial-label="Play"]')
+  })
 }
 
 window.addEventListener("message", function (event) {
